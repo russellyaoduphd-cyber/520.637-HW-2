@@ -15,10 +15,24 @@
 
 \section{}
 \subsection*{a} 
-There are $N$ stages, which each corresponds to parking space $k$, $k\in\{0,1,\ldots, {N-1}\}$. For each $k$, state space is $\{F,F^{c},T\}$, where
-$F$ denotes that this space is free and $F^c$, means this space is taken, that is not free, $T$ means that the process is ended before entering this stage, so for the stage $0$, it cannot be Terminal state. As a result, for $k=0$, the initial distribution $\mu_0$, we set $\mu_0 (T)=0$. For stage $N$, this process must be terminated, so the state space for stage $N$ is $\{T\}$.
-Regarding action space, I set different action space for $F$, $F^c$, and $T$.
-\[\mathcal{A}(F)=\{s,m\}\]
-\[\mathcal{A}(F^c)=\{m\}\]
-\[\mathcal{A}(T)= \varnothing\]
+There are $N$ stages, where stage $k$ corresponds to parking space
+$k$, for $k\in\{0,1,\ldots,N-1\}$.
+Let $F$ denote that the current parking space is free, $F^c$ denote
+that it is taken, and $T$ denote the terminal state in which the driver
+has already parked. Then
+\[\mathcal S_0=\{F,F^c\},\]
+\[\mathcal S_k=\{F,F^c,T\}, \qquad k=1,\ldots,N-1, \]
+and after the last decision stage,
+\[\mathcal S_N=\{T\}. \]
+For $k=0,\ldots,N-1$, the action sets are
+\[ \mathcal A_k(F)=\{\text{park},\text{continue}\}, \]
+\[\mathcal A_k(F^c)=\{\text{continue}\}. \]
+At the terminal state $T$, no further decision is required.
+\subsection*{b}
+Let $a^1$ denote ``park'' and $a^2$ denote ``continue''.
+we have:\[P(S_{k+1}=T, C_{k+1}=c(k)|S_k=F,A_k=a^1)=1\]
+\[P(S_{k+1}=F, C_{k+1}=0|S_k=F, A_k=a^2)=p(k+1)\]
+\[P(S_{k+1}=F^c, C_{k+1}=0|S_k=F, A_k=a^2)=1-p(k+1)\]
+\[P(S_{k+1}=F, C_{k+1}=0|S_k=F^c, A_k=a^2)=p(k+1)\]
+\[P(S_{k+1}=F^c, C_{k+1}=0|S_k=F^c, A_k=a^2)=1-p(k+1)\]
 \end{document}
