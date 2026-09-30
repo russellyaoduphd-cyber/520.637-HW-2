@@ -41,4 +41,13 @@ For $k=N-1$, if the driver continues, then
 \[P(S_N=T, C_N=C|S_{N-1}=F,A_{N-1}=a^2)=1\]
 \[P(S_N=T, C_N=C|S_{N-1}=F^c,A_{N-1}=a^2)=1\]
 All other transition-cost probabilities are zero.
+\subsection*{c}
+\[J^{\star}_N(T)=0\]
+for $k={N-1}$, \[J^{\star}_{N-1}(F)=\min \{c(N-1),C\}\]
+\[J^{\star}_{N-1}(F^c)=C\]
+\[J^{\star}_{N-1}(T)=0\]
+for $k=0,1,\ldots, {N-2}$,
+\[J^{\star}_{k}(F)=\min\{c(k),p(k+1) J^{\star}_{k+1}(F)+(1-p(k+1))J^{\star}_{k+1}(F^c) \}\]
+\[J^{\star}_{k}(F^c)= p(k+1) J^{\star}_{k+1}(F)+(1-p(k+1))J^{\star}_{k+1}(F^c)\]
+\[J^{\star}_{k}(T)=0\]
 \end{document}
