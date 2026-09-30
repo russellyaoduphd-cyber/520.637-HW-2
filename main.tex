@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\title{520.637 HW 2}
+\author{Qining Shen}
+\date{September 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+\subsection*{a} 
+There are $N$ stages, which each corresponds to parking space $k$, $k\in\{0,1,\ldots, {N-1}\}$. For each $k$, state space is $\{F,F^{c},T\}$, where
+$F$ denotes that this space is free and $F^c$, means this space is taken, that is not free, $T$ means that the process is ended before entering this stage, so for the stage $0$, it cannot be Terminal state. As a result, for $k=0$, the initial distribution $\mu_0$, we set $\mu_0 (T)=0$. For stage $N$, this process must be terminated, so the state space for stage $N$ is $\{T\}$.
+Regarding action space, I set different action space for $F$, $F^c$, and $T$.
+\[\mathcal{A}(F)=\{s,m\}\]
+\[\mathcal{A}(F^c)=\{m\}\]
+\[\mathcal{A}(T)= \varnothing\]
+\end{document}
