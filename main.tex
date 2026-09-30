@@ -35,5 +35,9 @@ we have:\[P(S_{k+1}=T, C_{k+1}=c(k)|S_k=F,A_k=a^1)=1\]
 \[P(S_{k+1}=F^c, C_{k+1}=0|S_k=F, A_k=a^2)=1-p(k+1)\]
 \[P(S_{k+1}=F, C_{k+1}=0|S_k=F^c, A_k=a^2)=p(k+1)\]
 \[P(S_{k+1}=F^c, C_{k+1}=0|S_k=F^c, A_k=a^2)=1-p(k+1)\]
+The four transition probabilities involving $p(k+1)$ above are for $k=0,\ldots,N-2$.
+For $k=N-1$, if the driver continues, then
+\[P(S_N=T, C_N=C|S_{N-1}=F,A_{N-1}=a^2)=1\]
+\[P(S_N=T, C_N=C|S_{N-1}=F^c,A_{N-1}=a^2)=1\]
 All other transition-cost probabilities are zero.
 \end{document}
