@@ -55,74 +55,19 @@ $k=N-1,N-2,\ldots,0$.
 \[J^\star = p(0)J_0^\star(F) + (1-p(0))J_0^\star(F^c). \]
 \subsection*{d}
 \begin{proof}
-Define
-\[
-V^{\star}_k = p(k) J^{\star}_{k}(F)+(1-p(k))J^{\star}_{k}(F^c),
-\qquad k=0,1,\ldots,N-1,
-\]
-and, for convenience, let
-\[
-V_N^{\star}=C.
-\]
-From part (c), for $k=0,1,\ldots,N-2$,
-\[
-J_k^{\star}(F^c)=V_{k+1}^{\star},
-\qquad
-J_k^{\star}(F)=\min\{c(k),V_{k+1}^{\star}\}.
-\]
-For $k=N-1$, the same formulas hold because
-\[
-J_{N-1}^{\star}(F^c)=C=V_N^{\star},
-\qquad
-J_{N-1}^{\star}(F)=\min\{c(N-1),C\}.
-\]
-Hence, for every $k=0,1,\ldots,N-1$,
-\[
-\begin{aligned}
-V_k^{\star}
-&=p(k)\min\{c(k),V_{k+1}^{\star}\}
- +(1-p(k))V_{k+1}^{\star} \\
-&\leq V_{k+1}^{\star}.
-\end{aligned}
-\]
-Thus,
-\[
-V_0^{\star}\leq V_1^{\star}\leq\cdots\leq V_N^{\star}.
-\]
-
-If space $k$ is free, the driver should park whenever
-\[
-c(k)\leq V_{k+1}^{\star},
-\]
-where in the case of equality we choose to park. Define
-\[
-k^{\star}
-=
-\min\left\{
-k\in\{0,1,\ldots,N-1\}:
-c(k)\leq V_{k+1}^{\star}
-\right\}.
-\]
-For every $k<k^{\star}$, by the definition of $k^{\star}$,
-\[
-c(k)>V_{k+1}^{\star},
-\]
-so the driver should continue even if space $k$ is free.
-
-For every $k\geq k^{\star}$, since $c(k)$ is non-increasing and
-$V_k^{\star}$ is non-decreasing,
-\[
-c(k)
-\leq c(k^{\star})
-\leq V_{k^{\star}+1}^{\star}
-\leq V_{k+1}^{\star}.
-\]
-Therefore, from space $k^{\star}$ onward, the driver should park at the
-first free space. Hence the optimal policy is a threshold policy.
-
-If the set defining $k^{\star}$ is empty, the driver continues through
-all parking spaces and parks in the garage; this is the degenerate threshold
-case $k^{\star}=N$.
+Note that $V^{\star}$ defined in the following is different from the hint.
+Define \[V^{\star}_{N-1}=J^{\star}_{N-1}(F^c)=C\]
+Then \[J^{\star}_{N-1}(F)=\min \{c(N-1),V^{\star}_{N-1}\} \leq V^{\star}_{N-1}\]
+\[J^{\star}_{N-2}(F^c)=p(N-1)J^{\star}_{N-1}(F) + (1-p(N-1)) J^{\star}_{N-1}(F^c)\leq V^{\star} _{N-1}\]
+Define $V^{\star}_{N-2}=J^{\star}_{N-2}(F^c)$, we have $V^{\star}_{N-2} \leq V^{\star} _{N-1}$\\
+For $k=0,1,\ldots, {N-2}$, define
+\[V^{\star}_{k} = J^{\star}_{k}(F^c)\]
+Then \[V^{\star}_{k} = p(k+1) \min \{c(k+1), V^{\star}_{k+1}\}+(1-p(k+1))V^{\star}_{k+1} \leq V^{\star}_{k+1}\leq V^{\star}_{N-1}=C\]
+Hence $\{V^{\star}_k\}_{k=0}^{N-1}$ is a non-decreasing sequence bounded by $C$.\\
+Also, from the assumption, $\{c(k)\}_{k=0}^{N-1}$ is non-increasing.\\
+There are two cases to be considered, one case is that there exists $k$, such
+that: $k\in\{0,1,\ldots,{N-1}\}$, $c(k) \leq V^{\star}_k$. In this case, we can find \[K = \min\{k:c(k) \leq V^{\star}_k \quad k=0,1,\ldots,{N-1}\}\], and stop at first space $k$, $k\geq K$.\\
+If no such K, stop at Garage.
 \end{proof}
 
 \end{document}
