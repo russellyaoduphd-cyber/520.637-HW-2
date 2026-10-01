@@ -139,4 +139,76 @@ after the third week, the terminal rewards are
 J_3^\star(R)=J_3^\star(B)=0.
 \]
 
+We now apply backward induction.
+
+For the third week, $k=2$,
+\[
+\begin{aligned}
+J_2^\star(R)
+&=\max\{0.6(100)+0.4(-20),\;0.3(120)+0.7(0)\}\\
+&=\max\{52,36\}=52,
+\end{aligned}
+\]
+so the optimal action in state $R$ is preventive maintenance. Also,
+\[
+\begin{aligned}
+J_2^\star(B)
+&=\max\{0.6(60)+0.4(-60),\;0\}\\
+&=\max\{12,0\}=12,
+\end{aligned}
+\]
+so the optimal action in state $B$ is repair.
+
+For the second week, $k=1$,
+\[
+\begin{aligned}
+J_1^\star(R)
+&=\max\{0.6(100+52)+0.4(-20+12),\\
+&\qquad\qquad 0.3(120+52)+0.7(0+12)\}\\
+&=\max\{88,60\}=88,
+\end{aligned}
+\]
+so the optimal action in state $R$ is preventive maintenance. For state $B$,
+\[
+\begin{aligned}
+J_1^\star(B)
+&=\max\{0.6(60+52)+0.4(-60+12),\;0+52\}\\
+&=\max\{48,52\}=52,
+\end{aligned}
+\]
+so the optimal action is replacement.
+
+For the first week, $k=0$,
+\[
+\begin{aligned}
+J_0^\star(R)
+&=\max\{0.6(100+88)+0.4(-20+52),\\
+&\qquad\qquad 0.3(120+88)+0.7(0+52)\}\\
+&=\max\{125.6,98.8\}=125.6,
+\end{aligned}
+\]
+so the optimal action in state $R$ is preventive maintenance. For completeness,
+\[
+\begin{aligned}
+J_0^\star(B)
+&=\max\{0.6(60+88)+0.4(-60+52),\;0+88\}\\
+&=\max\{85.6,88\}=88,
+\end{aligned}
+\]
+so the optimal action in state $B$ is replacement.
+
+Therefore, the optimal policy is
+\[
+\begin{array}{c|cc}
+& R & B\\ \hline
+\text{Week 1} & \text{maintain} & \text{replace}\\
+\text{Week 2} & \text{maintain} & \text{replace}\\
+\text{Week 3} & \text{maintain} & \text{repair}
+\end{array}
+\]
+and since $S_0=R$, the maximum expected total profit over the three weeks is
+\[
+J_0^\star(R)=125.6.
+\]
+
 \end{document}
