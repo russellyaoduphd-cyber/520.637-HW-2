@@ -89,23 +89,14 @@ spaces and park in the garage. This is the degenerate threshold case $K=N$.
 \subsection*{a}
 We formulate the problem as a finite-horizon MDP with three decision stages,
 $k=0,1,2$, corresponding to the three weeks. Let
-\[
-\mathcal S=\{R,B\},
-\]
+\[\mathcal S=\{R,B\},\]
 where $R$ denotes that the machine is running at the beginning of the week
 and $B$ denotes that it is broken. The initial state is
-\[
-S_0=R.
-\]
-
+\[S_0=R.\]
 The available actions depend on the current state:
-\[
-\mathcal A(R)=\{M,N\},
-\]
+\[\mathcal A(R)=\{M,N\},\]
 where $M$ denotes preventive maintenance and $N$ denotes no maintenance, and
-\[
-\mathcal A(B)=\{\text{repair},\text{replace}\}.
-\]
+\[\mathcal A(B)=\{\text{repair},\text{replace}\}.\]
 
 We use the weekly net profit as the reward. The nonzero state-reward
 transition probabilities are
@@ -138,77 +129,57 @@ after the third week, the terminal rewards are
 \[
 J_3^\star(R)=J_3^\star(B)=0.
 \]
-
 We now apply backward induction.
-
 For the third week, $k=2$,
-\[
-\begin{aligned}
+\[\begin{aligned}
 J_2^\star(R)
 &=\max\{0.6(100)+0.4(-20),\;0.3(120)+0.7(0)\}\\
 &=\max\{52,36\}=52,
-\end{aligned}
-\]
+\end{aligned}\]
 so the optimal action in state $R$ is preventive maintenance. Also,
-\[
-\begin{aligned}
+\[\begin{aligned}
 J_2^\star(B)
 &=\max\{0.6(60)+0.4(-60),\;0\}\\
 &=\max\{12,0\}=12,
-\end{aligned}
-\]
+\end{aligned}\]
 so the optimal action in state $B$ is repair.
-
 For the second week, $k=1$,
-\[
-\begin{aligned}
+\[\begin{aligned}
 J_1^\star(R)
 &=\max\{0.6(100+52)+0.4(-20+12),\\
 &\qquad\qquad 0.3(120+52)+0.7(0+12)\}\\
 &=\max\{88,60\}=88,
-\end{aligned}
-\]
+\end{aligned}\]
 so the optimal action in state $R$ is preventive maintenance. For state $B$,
-\[
-\begin{aligned}
+\[\begin{aligned}
 J_1^\star(B)
 &=\max\{0.6(60+52)+0.4(-60+12),\;0+52\}\\
 &=\max\{48,52\}=52,
-\end{aligned}
-\]
+\end{aligned}\]
 so the optimal action is replacement.
-
 For the first week, $k=0$,
-\[
-\begin{aligned}
+\[\begin{aligned}
 J_0^\star(R)
 &=\max\{0.6(100+88)+0.4(-20+52),\\
 &\qquad\qquad 0.3(120+88)+0.7(0+52)\}\\
 &=\max\{125.6,98.8\}=125.6,
-\end{aligned}
-\]
+\end{aligned}\]
 so the optimal action in state $R$ is preventive maintenance. For completeness,
-\[
-\begin{aligned}
+\[\begin{aligned}
 J_0^\star(B)
 &=\max\{0.6(60+88)+0.4(-60+52),\;0+88\}\\
 &=\max\{85.6,88\}=88,
-\end{aligned}
-\]
+\end{aligned}\]
 so the optimal action in state $B$ is replacement.
-
-Therefore, the optimal policy is
-\[
-\begin{array}{c|cc}
+Therefore, the optimal (deterministic) policy is
+\[\begin{array}{c|cc}
 & R & B\\ \hline
 \text{Week 1} & \text{maintain} & \text{replace}\\
 \text{Week 2} & \text{maintain} & \text{replace}\\
 \text{Week 3} & \text{maintain} & \text{repair}
-\end{array}
-\]
+\end{array}\]
 and since $S_0=R$, the maximum expected total profit over the three weeks is
-\[
-J_0^\star(R)=125.6.
-\]
+\[J_0^\star(R)=125.6.\]
+\subsection*{b}
 
 \end{document}
