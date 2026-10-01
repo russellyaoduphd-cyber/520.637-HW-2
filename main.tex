@@ -55,34 +55,34 @@ $k=N-1,N-2,\ldots,0$.
 \[J^\star = p(0)J_0^\star(F) + (1-p(0))J_0^\star(F^c). \]
 \subsection*{d}
 \begin{proof}
-Note that $V^{\star}$ defined in the following is different from the hint.
-Define \[V^{\star}_{N-1}=J^{\star}_{N-1}(F^c)=C\]
-Then \[J^{\star}_{N-1}(F)=\min \{c(N-1),V^{\star}_{N-1}\} \leq V^{\star}_{N-1}\]
-\[J^{\star}_{N-2}(F^c)=p(N-1)J^{\star}_{N-1}(F) + (1-p(N-1)) J^{\star}_{N-1}(F^c)\leq V^{\star} _{N-1}\]
-Define $V^{\star}_{N-2}=J^{\star}_{N-2}(F^c)$, we have $V^{\star}_{N-2} \leq V^{\star} _{N-1}$\\
+Define \[W^{\star}_{N-1}=J^{\star}_{N-1}(F^c)=C\]
+Then \[J^{\star}_{N-1}(F)=\min \{c(N-1),W^{\star}_{N-1}\} \leq W^{\star}_{N-1}\]
+\[J^{\star}_{N-2}(F^c)=p(N-1)J^{\star}_{N-1}(F) + (1-p(N-1)) J^{\star}_{N-1}(F^c)\leq W^{\star} _{N-1}\]
+Define $W^{\star}_{N-2}=J^{\star}_{N-2}(F^c)$, we have $W^{\star}_{N-2} \leq W^{\star} _{N-1}$\\
 For $k=0,1,\ldots, {N-2}$, define
-\[V^{\star}_{k} = J^{\star}_{k}(F^c)\]
-Then \[V^{\star}_{k} = p(k+1) \min \{c(k+1), V^{\star}_{k+1}\}+(1-p(k+1))V^{\star}_{k+1} \leq V^{\star}_{k+1}\leq V^{\star}_{N-1}=C\]
-Hence $\{V^{\star}_k\}_{k=0}^{N-1}$ is a non-decreasing sequence bounded by $C$.\\
+\[W^{\star}_{k} = J^{\star}_{k}(F^c)\]
+Then \[W^{\star}_{k} = p(k+1) \min \{c(k+1), W^{\star}_{k+1}\}+(1-p(k+1))W^{\star}_{k+1} \leq W^{\star}_{k+1}\leq W^{\star}_{N-1}=C\]
+Hence $\{W^{\star}_k\}_{k=0}^{N-1}$ is a non-decreasing sequence bounded by $C$.\\
 Also, from the assumption, $\{c(k)\}_{k=0}^{N-1}$ is non-increasing.\\
-Moreover, since \[J_k^\star(F)=\min\{c(k),V_k^\star\}, \qquad k=0,1,\ldots,N-1,\], $a^1$ is the optimal action at stage $k$ iff $\min\{c(k),V_k^\star\}=c(k)$
-the driver should park at a free space $k$ if and only if
-\[c(k)\leq V_k^\star.\]\\
+Moreover, since \[J_k^\star(F)=\min\{c(k),W_k^\star\}, \qquad k=0,1,\ldots,N-1,\]
+parking is an optimal action at a free space $k$ if and only if
+\[c(k)\leq W_k^\star.\]
+In the case of equality, both parking and continuing are optimal, and we choose to park.\\
 There are two cases. First, suppose that there exists
 $k\in\{0,1,\ldots,N-1\}$ such that
-$c(k)\leq V_k^\star$. Define
-\[K=\min\{k\in\{0,1,\ldots,N-1\}:c(k)\leq V_k^\star\}.\]
+$c(k)\leq W_k^\star$. Define
+\[K=\min\{k\in\{0,1,\ldots,N-1\}:c(k)\leq W_k^\star\}.\]
 For every $k<K$, by the definition of $K$,
-\[c(k)>V_k^\star,\]
+\[c(k)>W_k^\star,\]
 so the driver should continue even if space $k$ is free.
 For every $k\geq K$, since $c(k)$ is non-increasing and
-$V_k^\star$ is non-decreasing,
-\[c(k)\leq c(K)\leq V_K^\star\leq V_k^\star. \]
+$W_k^\star$ is non-decreasing,
+\[c(k)\leq c(K)\leq W_K^\star\leq W_k^\star. \]
 Thus, from space $K$ onward, the driver should park at the first free
 space.
-If no such $K$ exists, then $c(k)>V_k^\star$ for every
+If no such $K$ exists, then $c(k)>W_k^\star$ for every
 $k=0,\ldots,N-1$, so the driver should continue through all parking
-spaces and park in the garage.
+spaces and park in the garage. This is the degenerate threshold case $K=N$.
 \end{proof}
 
 \end{document}
