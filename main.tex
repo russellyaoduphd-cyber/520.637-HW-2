@@ -52,11 +52,15 @@ for $k=0,1,\ldots, {N-2}$,
 \[J^{\star}_{k}(T)=0 \quad k= 1,2,\ldots,{N-2}\]
 These equations are evaluated backward for
 $k=N-1,N-2,\ldots,0$.
-\[
-J^\star
-=
-p(0)J_0^\star(F)
-+
-(1-p(0))J_0^\star(F^c).
-\]
+\[J^\star = p(0)J_0^\star(F) + (1-p(0))J_0^\star(F^c). \]
+\subsection*{d}
+\begin{proof}
+ Define \[V^{\star}_k = p(k) J^{\star}_{k}(F)+(1-p(k))J^{\star}_{k}(F^c)\]
+Then \[V^{\star}_{k+1}=J^{\star}_k(F^c)\quad  k=0,1,\ldots,{N-2}\]
+and \[J^{\star}_{k}(F)=\min \{c(k),V^{\star}_{k+1} \}\]
+For $k=0,1,\ldots,{N-1}$, \[V^{\star}_{k-1}= p(k-1) J^{\star}_{k-1}(F)+(1-p(k-1))J^{\star}_{k-1}(F^c) = p(k-1) \min \{c(k-1),V^{\star}_{k} \}+(1-p(k-1)) V^{\star}_{k} \leq V^{\star}_{k} \]
+Thus, we have \[V^{\star}_0 \leq \dots \leq V^{\star}_{N-1}\]
+Define $k^{\star} = \min \{k: c(k)\leq V^{\star}_k \quad k= 0,1,\ldots,{N-1}\}$, since $c(k)$ is non-increasing, $c(k)\leq c(k^{\star}) \leq V^{\star}_{k^{\star}}\leq V^{\star}_k, \forall k \in \{k^{\star}+1,\ldots,{N-1}\}$, and we know the driver should choose to park iff $c(k)\leq V^{\star}_k$   
+\end{proof}
+
 \end{document}
