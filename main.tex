@@ -30,7 +30,7 @@ For $k=0,\ldots,N-1$, the action sets are
 At the terminal state $T$, no further decision is required.
 \subsection*{b}
 Let $a^1$ denote ``park'' and $a^2$ denote ``continue''. Let $C_{k+1}$ denote the incurred cost.
-we have:\[P(S_{k+1}=T, C_{k+1}=c(k)|S_k=F,A_k=a^1)=1 \quad k= 0,1,\dots,{N-1}\]
+We have:\[P(S_{k+1}=T, C_{k+1}=c(k)|S_k=F,A_k=a^1)=1 \quad k= 0,1,\dots,{N-1}\]
 Then we consider the state-action pair with $a^2$, for:
 \[k=0,1,\ldots,{N-2}\]
 \[P(S_{k+1}=F, C_{k+1}=0|S_k=F, A_k=a^2)=p(k+1)\]
@@ -40,7 +40,9 @@ Then we consider the state-action pair with $a^2$, for:
 For $k=N-1$, if the driver continues, then
 \[P(S_N=T, C_N=C|S_{N-1}=F,A_{N-1}=a^2)=1\]
 \[P(S_N=T, C_N=C|S_{N-1}=F^c,A_{N-1}=a^2)=1\]
-All other transition-cost probabilities are zero.
+All other transition-cost probabilities for feasible nonterminal
+state-action pairs are zero. Once the state $T$ is reached, the process
+terminates and no further transition is considered.
 \subsection*{c}
 \[J^{\star}_N(T)=0\]
 for $k={N-1}$, \[J^{\star}_{N-1}(F)=\min \{c(N-1),C\}\]
@@ -84,7 +86,6 @@ If no such $K$ exists, then $c(k)>W_k^\star$ for every
 $k=0,\ldots,N-1$, so the driver should continue through all parking
 spaces and park in the garage. This is the degenerate threshold case $K=N$.
 \end{proof}
-
 \section{}
 \subsection*{a}
 We formulate the problem as a finite-horizon MDP with three decision stages,
@@ -207,124 +208,70 @@ Therefore, the optimal policy at the last stage is
 Compared with part (a), the optimal action in state $R$ does not change,
 while the optimal action in state $B$ changes from repair to replacement.
 \section{}
-\[
-s_{t+1}=s_t+a_t, \qquad
+\[s_{t+1}=s_t+a_t, \qquad
 0\leq s_{t+1}=s_t+a_t\leq 5, \qquad
-a_t\in\mathbb Z, \qquad t=0,1,2,3.
-\]
+a_t\in\mathbb Z, \qquad t=0,1,2,3.\]
 Hence, given the current state $s$, the next state satisfies
-\[
-s'\in\{0,1,2,3,4,5\},
-\]
+\[s'\in\{0,1,2,3,4,5\},\]
 and the corresponding action is $a=s'-s$. The feasible action set at state
 $s$ is therefore
-\[
-\mathcal A(s)=\{a\in\mathbb Z:0\leq s+a\leq 5\}.
-\]
-
+\[\mathcal A(s)=\{a\in\mathbb Z:0\leq s+a\leq 5\}.\]
 There is no terminal reward, so
-\[
-J_4^\star(s)=0, \qquad s=0,1,\ldots,5.
-\]
+\[J_4^\star(s)=0, \qquad s=0,1,\ldots,5.\]
 The DP recursion is
-\[
-J_t^\star(s)
-=
+\[J_t^\star(s)=
 \max_{a\in\mathcal A(s)}
 \left\{
 s^2-2a^2+J_{t+1}^\star(s+a)
 \right\},
-\qquad t=0,1,2,3.
-\]
+\qquad t=0,1,2,3.\]
 Equivalently, using the next state $s'=s+a$,
-\[
-J_t^\star(s)
-=
-\max_{s'\in\{0,1,\ldots,5\}}
+\[J_t^\star(s)
+=\max_{s'\in\{0,1,\ldots,5\}}
 \left\{
 s^2-2(s'-s)^2+J_{t+1}^\star(s')
-\right\}.
-\]
-
+\right\}.\]
 For $t=3$,
-\[
-J_3^\star(s)
-=
-\max_{s'}\{s^2-2(s'-s)^2\}.
-\]
+\[J_3^\star(s)=\max_{s'}\{s^2-2(s'-s)^2\}.\]
 The maximum is attained at $s'=s$, so $a_3^\star(s)=0$ and
-\[
-\begin{array}{c|cccccc}
+\[\begin{array}{c|cccccc}
 s & 0&1&2&3&4&5\\ \hline
 J_3^\star(s)&0&1&4&9&16&25\\
 a_3^\star(s)&0&0&0&0&0&0
-\end{array}
-\]
-
+\end{array}\]
 For $t=2$, evaluating
-\[
-J_2^\star(s)
-=
-\max_{s'}\left\{
-s^2-2(s'-s)^2+J_3^\star(s')
-\right\}
-\]
+\[J_2^\star(s)=\max_{s'}\left\{s^2-2(s'-s)^2+J_3^\star(s')\right\}\]
 gives
-\[
-\begin{array}{c|cccccc}
+\[\begin{array}{c|cccccc}
 s & 0&1&2&3&4&5\\ \hline
 J_2^\star(s)&0&3&12&26&39&50\\
 a_2^\star(s)&0&1&2&2&1&0
-\end{array}
-\]
-
+\end{array}\]
 For $t=1$, similarly,
-\[
-\begin{array}{c|cccccc}
+\[\begin{array}{c|cccccc}
 s & 0&1&2&3&4&5\\ \hline
 J_1^\star(s)&8&22&36&51&64&75\\
 a_1^\star(s)&3&3&3&2&1&0
-\end{array}
-\]
-
+\end{array}\]
 Finally, since the initial state is $s_0=1$, we only need to evaluate
 $J_0^\star(1)$. The feasible actions are
 $a_0\in\{-1,0,1,2,3,4\}$, and
-\[
-\begin{array}{c|rrrrrr}
+\[\begin{array}{c|rrrrrr}
 a_0&-1&0&1&2&3&4\\ \hline
 s_1=1+a_0&0&1&2&3&4&5\\
 1-2a_0^2+J_1^\star(s_1)&7&23&35&44&47&44
-\end{array}
-\]
+\end{array}\]
 Hence
-\[
-J_0^\star(1)=47, \qquad a_0^\star=3.
-\]
-
+\[J_0^\star(1)=47, \qquad a_0^\star=3.\]
 We now follow the optimal actions forward. Since
-\[
-s_0=1, \qquad a_0^\star=3,
-\]
+\[s_0=1, \qquad a_0^\star=3,\]
 we have $s_1=4$. From the table for $t=1$,
-\[
-a_1^\star(4)=1,
-\]
+\[a_1^\star(4)=1,\]
 so $s_2=5$. Then
-\[
-a_2^\star(5)=0, \qquad a_3^\star(5)=0.
-\]
+\[a_2^\star(5)=0, \qquad a_3^\star(5)=0.\]
 Therefore, the optimal action sequence is
-\[
-\boxed{(a_0^\star,a_1^\star,a_2^\star,a_3^\star)=(3,1,0,0)}
-\]
-and the maximum return is
-\[
-\boxed{47}.
-\]
+\[(a_0^\star,a_1^\star,a_2^\star,a_3^\star)=(3,1,0,0)\]
+and the maximum return is $47$
 Indeed,
-\[
-1^2-2(3)^2+4^2-2(1)^2+5^2-2(0)^2+5^2-2(0)^2=47.
-\]
-
+\[1^2-2(3)^2+4^2-2(1)^2+5^2-2(0)^2+5^2-2(0)^2=47.\]
 \end{document}
