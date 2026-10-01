@@ -87,5 +87,56 @@ spaces and park in the garage. This is the degenerate threshold case $K=N$.
 
 \section{}
 \subsection*{a}
+We formulate the problem as a finite-horizon MDP with three decision stages,
+$k=0,1,2$, corresponding to the three weeks. Let
+\[
+\mathcal S=\{R,B\},
+\]
+where $R$ denotes that the machine is running at the beginning of the week
+and $B$ denotes that it is broken. The initial state is
+\[
+S_0=R.
+\]
+
+The available actions depend on the current state:
+\[
+\mathcal A(R)=\{M,N\},
+\]
+where $M$ denotes preventive maintenance and $N$ denotes no maintenance, and
+\[
+\mathcal A(B)=\{\text{repair},\text{replace}\}.
+\]
+
+We use the weekly net profit as the reward. The nonzero state-reward
+transition probabilities are
+\[
+P(S_{k+1}=R,R_{k+1}=100\mid S_k=R,A_k=M)=0.6,
+\]
+\[
+P(S_{k+1}=B,R_{k+1}=-20\mid S_k=R,A_k=M)=0.4,
+\]
+\[
+P(S_{k+1}=R,R_{k+1}=120\mid S_k=R,A_k=N)=0.3,
+\]
+\[
+P(S_{k+1}=B,R_{k+1}=0\mid S_k=R,A_k=N)=0.7,
+\]
+\[
+P(S_{k+1}=R,R_{k+1}=60\mid S_k=B,A_k=\text{repair})=0.6,
+\]
+\[
+P(S_{k+1}=B,R_{k+1}=-60\mid S_k=B,A_k=\text{repair})=0.4,
+\]
+and
+\[
+P(S_{k+1}=R,R_{k+1}=0\mid S_k=B,A_k=\text{replace})=1.
+\]
+All other state-reward transition probabilities are zero.
+
+Since in part (a) we do not care whether the machine is running or broken
+after the third week, the terminal rewards are
+\[
+J_3^\star(R)=J_3^\star(B)=0.
+\]
 
 \end{document}
