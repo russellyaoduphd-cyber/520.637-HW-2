@@ -181,5 +181,41 @@ Therefore, the optimal (deterministic) policy is
 and since $S_0=R$, the maximum expected total profit over the three weeks is
 \[J_0^\star(R)=125.6.\]
 \subsection*{b}
+With a penalty of $100$ if the machine is broken at the end of the third
+week, the terminal rewards become
+\[
+J_3^\star(R)=0, \qquad J_3^\star(B)=-100.
+\]
+
+We only need to recompute the last stage, $k=2$. For state $R$,
+\[
+\begin{aligned}
+J_2^\star(R)
+&=\max\{0.6(100)+0.4(-20-100),\;
+0.3(120)+0.7(0-100)\}\\
+&=\max\{12,-34\}=12,
+\end{aligned}
+\]
+so preventive maintenance remains optimal.
+
+For state $B$,
+\[
+\begin{aligned}
+J_2^\star(B)
+&=\max\{0.6(60)+0.4(-60-100),\;0\}\\
+&=\max\{-28,0\}=0,
+\end{aligned}
+\]
+so replacement is optimal.
+
+Therefore, the optimal policy at the last stage is
+\[
+\begin{array}{c|cc}
+& R & B\\ \hline
+\text{Week 3} & \text{maintain} & \text{replace}
+\end{array}
+\]
+Compared with part (a), the optimal action in state $R$ does not change,
+while the optimal action in state $B$ changes from repair to replacement.
 
 \end{document}
