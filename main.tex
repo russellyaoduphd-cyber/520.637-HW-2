@@ -65,9 +65,24 @@ For $k=0,1,\ldots, {N-2}$, define
 Then \[V^{\star}_{k} = p(k+1) \min \{c(k+1), V^{\star}_{k+1}\}+(1-p(k+1))V^{\star}_{k+1} \leq V^{\star}_{k+1}\leq V^{\star}_{N-1}=C\]
 Hence $\{V^{\star}_k\}_{k=0}^{N-1}$ is a non-decreasing sequence bounded by $C$.\\
 Also, from the assumption, $\{c(k)\}_{k=0}^{N-1}$ is non-increasing.\\
-There are two cases to be considered, one case is that there exists $k$, such
-that: $k\in\{0,1,\ldots,{N-1}\}$, $c(k) \leq V^{\star}_k$. In this case, we can find \[K = \min\{k:c(k) \leq V^{\star}_k \quad k=0,1,\ldots,{N-1}\}\], and stop at first space $k$, $k\geq K$.\\
-If no such K, stop at Garage.
+Moreover, since \[J_k^\star(F)=\min\{c(k),V_k^\star\}, \qquad k=0,1,\ldots,N-1,\], $a^1$ is the optimal action at stage $k$ iff $\min\{c(k),V_k^\star\}=c(k)$
+the driver should park at a free space $k$ if and only if
+\[c(k)\leq V_k^\star.\]\\
+There are two cases. First, suppose that there exists
+$k\in\{0,1,\ldots,N-1\}$ such that
+$c(k)\leq V_k^\star$. Define
+\[K=\min\{k\in\{0,1,\ldots,N-1\}:c(k)\leq V_k^\star\}.\]
+For every $k<K$, by the definition of $K$,
+\[c(k)>V_k^\star,\]
+so the driver should continue even if space $k$ is free.
+For every $k\geq K$, since $c(k)$ is non-increasing and
+$V_k^\star$ is non-decreasing,
+\[c(k)\leq c(K)\leq V_K^\star\leq V_k^\star. \]
+Thus, from space $K$ onward, the driver should park at the first free
+space.
+If no such $K$ exists, then $c(k)>V_k^\star$ for every
+$k=0,\ldots,N-1$, so the driver should continue through all parking
+spaces and park in the garage.
 \end{proof}
 
 \end{document}
