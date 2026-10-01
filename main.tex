@@ -183,39 +183,31 @@ and since $S_0=R$, the maximum expected total profit over the three weeks is
 \subsection*{b}
 With a penalty of $100$ if the machine is broken at the end of the third
 week, the terminal rewards become
-\[
-J_3^\star(R)=0, \qquad J_3^\star(B)=-100.
-\]
-
+\[J_3^\star(R)=0, \qquad J_3^\star(B)=-100.\]
 We only need to recompute the last stage, $k=2$. For state $R$,
-\[
-\begin{aligned}
+\[\begin{aligned}
 J_2^\star(R)
 &=\max\{0.6(100)+0.4(-20-100),\;
 0.3(120)+0.7(0-100)\}\\
 &=\max\{12,-34\}=12,
-\end{aligned}
-\]
+\end{aligned}\]
 so preventive maintenance remains optimal.
-
 For state $B$,
-\[
-\begin{aligned}
+\[\begin{aligned}
 J_2^\star(B)
 &=\max\{0.6(60)+0.4(-60-100),\;0\}\\
 &=\max\{-28,0\}=0,
-\end{aligned}
-\]
+\end{aligned} \]
 so replacement is optimal.
-
 Therefore, the optimal policy at the last stage is
-\[
-\begin{array}{c|cc}
+\[\begin{array}{c|cc}
 & R & B\\ \hline
 \text{Week 3} & \text{maintain} & \text{replace}
-\end{array}
-\]
+\end{array} \]
 Compared with part (a), the optimal action in state $R$ does not change,
 while the optimal action in state $B$ changes from repair to replacement.
+\section{}
+\[s_{t+1}=s_t+a_t \quad 0 \leq s_{t+1} =s_t+a_t \leq 5 \quad a_t \in \mathbb{Z} \quad t=0,1,2,3\]
+Hence given current state $s$, the next $s'\in \{0,1,2,3,4,5\}$
 
 \end{document}
